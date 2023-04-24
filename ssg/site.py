@@ -13,7 +13,7 @@ class Site:
 
     def create_dir(self, path):
         directory = self.dest / path.relative_to(self.source)
-        directory.mkdir(parents = True, exists = True)
+        directory.mkdir(parents=True, exists=True)
     
     def load_parser(self, extension):
         for parser in self.parsers:
