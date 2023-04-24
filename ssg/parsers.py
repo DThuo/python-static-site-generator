@@ -12,8 +12,8 @@ class Parser:
     base_ext = ".html"
     file_exts: List[str] = []
 
-    def valid_file_exts(self, extensions):
-        return file_exts in self.file_exts
+    def valid_extension(self, extension):
+        return extension in self.extension
     
     def parse(self, path: Path, source: Path, dest: Path):
         raise NotImplementedError
