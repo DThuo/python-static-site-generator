@@ -1,5 +1,5 @@
+import sys
 from pathlib import Path
-
 from ssg import parsers
 
 
@@ -10,7 +10,6 @@ class Site:
         self.source = Path(source)
         self.dest = Path(dest)
         self.parsers = parsers or []
-
 
     def create_dir(self, path):
         directory = self.dest / path.relative_to(self.source)
@@ -26,9 +25,8 @@ class Site:
         if parser is not None:
             parser.parse(path, self.source, self.dest) 
         else:  
-            print (NotImplemented)
-             
-           
+            print (NotImplemented) 
+            
     def build(self):
         self.dest.mkdir(parents=True, exist_ok=True)
         for path in self.source.rglob("*"):
@@ -36,6 +34,11 @@ class Site:
                 self.create_dir(path)
             elif path.is_file():
                 self.run_parser(path)
+                
+    @staticmethod
+    def error(message):
+        sys.stderr.write("\x1b[1;31m{}\n".format(message))
+    
 
 
 
