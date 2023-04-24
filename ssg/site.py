@@ -11,9 +11,9 @@ class Site:
         self.dest = Path(dest)
         self.parsers = parsers or []
         
-def create_dir(self, path):
-    directory = self.dest / path.relative_to(self.source)
-    directory.mkdir(parents=True, exist_ok=True)
+    def create_dir(self, path):
+        directory = self.dest / path.relative_to(self.source)
+        directory.mkdir(parents=True, exist_ok=True)
     
     def load_parser(self, extension):
         for parser in self.parsers:
