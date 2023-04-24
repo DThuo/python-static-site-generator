@@ -18,6 +18,10 @@ class Content:
         self.data["content"] = content
     
     @property
+    def body(self):
+        return self.data["content"]
+    
+    @property
     def type(self):
         return self.data["type"] if "type" in self.data else None
     
@@ -25,8 +29,8 @@ class Content:
     def type(self, type):
         self.data[type] = type
         
-        def __getitem__(self, key):
-            return self.data[key]
+    def __getitem__(self, key):
+        return self.data[key]
 
     def __iter__(self):
         self.data.__iter__()
