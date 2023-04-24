@@ -27,7 +27,7 @@ class Content(Mapping):
     
     @type.setter
     def type(self, type):
-        self.data[type] = type
+        self.data["type"] = type
         
     def __getitem__(self, key):
         return self.data[key]
