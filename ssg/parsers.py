@@ -9,7 +9,6 @@ from markdown import markdown
 from ssg.content import Content
 
 class Parser:
-    extensions = ".html"
     extensions: List[str] = []
 
     def valid_extension(self, extension):
